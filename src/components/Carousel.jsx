@@ -27,6 +27,9 @@ const Carousel = () => {
   };
   return (
     <div className="w-full flex flex-col md:flex-row">
+      <img className="hidden" src={img1} alt="" />
+      <img className="hidden" src={img2} alt="" />
+      <img className="hidden" src={img3} alt="" />
       <div className="md:w-7/12 relative">
         {slide === 1 ? (
           <img
