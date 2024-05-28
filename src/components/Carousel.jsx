@@ -11,12 +11,14 @@ import Navbar from "./Navbar";
 const Carousel = () => {
   const MAXSLIDES = 3;
   const [slide, setSlide] = useState(1);
+  const [animation, setAnimation] = useState();
   const prevSlide = () => {
     let next = slide - 1;
     if (next < 1) {
       next = MAXSLIDES;
     }
     setSlide(next);
+    setAnimation("slide-in-from-right-48");
   };
   const nextSlide = () => {
     let next = slide + 1;
@@ -24,6 +26,7 @@ const Carousel = () => {
       next = 1;
     }
     setSlide(next);
+    setAnimation("slide-in-from-left-48");
   };
   return (
     <div className="w-full flex flex-col md:flex-row">
@@ -33,7 +36,7 @@ const Carousel = () => {
       <div className="md:w-7/12 relative">
         {slide === 1 ? (
           <img
-            className="w-full object-cover animate-in slide-in-from-left duration-300"
+            className={`w-full object-cover animate-in ${animation} duration-300`}
             src={img1}
             alt=""
           />
@@ -41,14 +44,14 @@ const Carousel = () => {
 
         {slide === 2 ? (
           <img
-            className="w-full object-cover animate-in slide-in-from-left duration-300"
+            className={`w-full object-cover animate-in ${animation} duration-300`}
             src={img2}
             alt=""
           />
         ) : null}
         {slide === 3 ? (
           <img
-            className="w-full object-cover animate-in slide-in-from-left duration-300"
+            className={`w-full object-cover animate-in ${animation} duration-300`}
             src={img3}
             alt=""
           />
